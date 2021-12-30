@@ -57,13 +57,15 @@
 
                     <div class="p-t-31 p-b-9">
                         <span class="txt1">
-                            Username
+                            Email
                         </span>
                     </div>
-                    <div class="wrap-input100 validate-input" data-validate="Username is required">
-                        <input class="input100" type="text" name="username">
+                    <div class="wrap-input100 validate-input" data-validate="Email is required">
+                        <input class="input100" type="email" name="email" value="{{ old('email') }}">
                         <span class="focus-input100"></span>
                     </div>
+                    {{ $errors->first('email') }}
+
 
                     <div class="p-t-13 p-b-9">
                         <span class="txt1">
