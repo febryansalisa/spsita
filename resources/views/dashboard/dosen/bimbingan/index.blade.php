@@ -41,7 +41,11 @@
                 <td>{{ $bimbingan->link_meet_bimbingan }}</td>
                 <td>{{ $bimbingan->judul_ta }}</td>
                 <td>
+                    @if ($bimbingan->file_ta)
                     <a href="{{ Storage::url($bimbingan->file_ta) }}" target="_blank">File Tugas Akhir</a>
+                    @else
+
+                    @endif
                 </td>
                 <td>{{ $bimbingan->status_ta }}</td>
                 <td>{{ $bimbingan->komentar_ta }}</td>
