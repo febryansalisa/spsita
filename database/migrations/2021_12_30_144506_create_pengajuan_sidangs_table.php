@@ -15,13 +15,10 @@ class CreatePengajuanSidangsTable extends Migration
     {
         Schema::create('pengajuan_sidang', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_persetujuan');
-            $table->foreign('id_persetujuan')->references('id')->on('persetujuan');
-            $table->unsignedBigInteger('id_sidang');
-            $table->foreign('id_sidang')->references('id')->on('sidang');
             $table->unsignedBigInteger('id_mahasiswa');
             $table->foreign('id_mahasiswa')->references('id')->on('users');
             $table->timestamp('tanggal_daftar_sidang');
+            $table->smallInteger('status_pengajuan');
             $table->timestamps();
         });
     }
