@@ -18,7 +18,7 @@ class CreatePengajuanSidangsTable extends Migration
             $table->unsignedBigInteger('id_mahasiswa');
             $table->foreign('id_mahasiswa')->references('id')->on('users');
             $table->timestamp('tanggal_daftar_sidang');
-            $table->smallInteger('status_pengajuan');
+            $table->smallInteger('status_pengajuan')->default(0);
             $table->timestamps();
         });
     }
