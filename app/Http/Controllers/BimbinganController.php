@@ -60,6 +60,10 @@ class BimbinganController extends Controller
             $formInput['file_ta'] =  $request->file('file_ta')->store('public/file_ta');
             $formInput['status_ta'] = 'Belum Dicek';
         }
+
+        if ($request->has('komentar_ta')) {
+            $formInput['status_ta'] = 'Sudah Dicek';
+        }
         $bimbingan->update($formInput);
 
         if (auth()->user()->role->nama_role == 'Mahasiswa')
