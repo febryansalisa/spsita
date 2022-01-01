@@ -15,6 +15,7 @@ class CreateBimbingansTable extends Migration
     {
         Schema::create('bimbingan', function (Blueprint $table) {
             $table->id();
+            $table->string('tahapan_bimbingan');
             $table->date('tanggal_bimbingan');
             $table->time('jam_bimbingan');
             $table->unsignedBigInteger('id_dosen');
@@ -22,11 +23,10 @@ class CreateBimbingansTable extends Migration
             $table->unsignedBigInteger('id_mahasiswa');
             $table->foreign('id_mahasiswa')->references('id')->on('users');
             $table->text('link_meet_bimbingan');
-            $table->text('file_ta');
-            $table->text('komentar_ta');
+            $table->text('file_ta')->nullable();
+            $table->text('komentar_ta')->nullable();
             $table->string('judul_ta')->nullable();
-            $table->string('status_ta');
-            $table->string('tahapan_bimbingan');
+            $table->string('status_ta')->nullable();
             $table->timestamps();
         });
     }
