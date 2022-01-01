@@ -26,7 +26,12 @@
         Mahasiswa
     </div>
 
-    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item {{ Request::is('dashboard/bimbingan-mahasiswa*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('bimbingan.mahasiswa') }}">
+            <i class="fas fa-fw fa-calendar-alt"></i>
+            <span>Bimbingan</span>
+        </a>
+    </li>
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
             aria-controls="collapseTwo">
