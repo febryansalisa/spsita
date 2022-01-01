@@ -58,6 +58,7 @@ class BimbinganController extends Controller
         $formInput = $request->all();
         if ($request->hasFile('file_ta')) {
             $formInput['file_ta'] =  $request->file('file_ta')->store('public/file_ta');
+            $formInput['status_ta'] = 'Belum Dicek';
         }
         $bimbingan->update($formInput);
 
