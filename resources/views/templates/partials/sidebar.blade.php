@@ -80,6 +80,12 @@
             <span>Bimbingan</span>
         </a>
     </li>
+    <li class="nav-item {{ Request::is('dashboard/jadwal-sidang-dosen*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('jadwal-sidang.dosen') }}">
+            <i class="fas fa-fw fa-calendar-alt"></i>
+            <span>Jadwal Sidang</span>
+        </a>
+    </li>
     @endcan
 
     @can('paa')
