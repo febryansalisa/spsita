@@ -40,7 +40,9 @@
                 <td>{{ $bimbingan->mahasiswa->nama }}</td>
                 <td>{{ $bimbingan->link_meet_bimbingan }}</td>
                 <td>{{ $bimbingan->judul_ta }}</td>
-                <td>{{ $bimbingan->file_ta }}</td>
+                <td>
+                    <a href="{{ Storage::url($bimbingan->file_ta) }}" target="_blank"></a>
+                </td>
                 <td>{{ $bimbingan->status_ta }}</td>
                 <td>{{ $bimbingan->komentar_ta }}</td>
                 <td>

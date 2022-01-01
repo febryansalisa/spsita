@@ -36,14 +36,20 @@ class BimbinganController extends Controller
     }
 
 
-    public function edit($id)
+    public function edit(Bimbingan $bimbingan)
     {
-        //
+        $data['listMahasiswa'] = User::whereHas('role', function ($query) {
+            $query->where('nama_role', 'Mahasiswa');
+        })->get();
+        $data['bimbingan'] = $bimbingan;
+
+        return view('dashboard.dosen.bimbingan.edit', $data);
     }
 
     public function update(Request $request, Bimbingan $bimbingan)
     {
-        //
+        $bimbingan->update($request->all());
+        return redirect()->route('bimbingan.index')->with('success', 'Berhasil update bimbingan');
     }
 
     public function destroy(Bimbingan $bimbingan)
