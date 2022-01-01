@@ -4,7 +4,7 @@
 
 @section('content')
 @if(session()->has('success'))
-<div class="alert alert-success">
+<div class="alert alert-success alert-dismissible fade show" role="alert">
     <i class="fa fa-check"></i> {{ session()->get('success') }}
 </div>
 @endif
@@ -42,6 +42,7 @@
                 <td>{{ $bimbingan->judul_ta }}</td>
                 <td>{{ $bimbingan->file_ta }}</td>
                 <td>{{ $bimbingan->status_ta }}</td>
+                <td>{{ $bimbingan->komentar_ta }}</td>
                 <td>
                     <div class="btn-toolbar">
                         <ul class="list-inline m-0">

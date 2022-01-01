@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bimbingan;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BimbinganController extends Controller
@@ -15,12 +16,18 @@ class BimbinganController extends Controller
 
     public function create()
     {
-        //
+        $data['listMahasiswa'] = User::whereHas('role', function ($query) {
+            $query->where('nama_role', 'Mahasiswa');
+        })->get();
+
+        return view('dashboard.dosen.bimbingan.create', $data);
     }
 
     public function store(Request $request)
     {
-        //
+        Bimbingan::create($request->all());
+
+        return redirect()->route('bimbingan.index')->with('success', 'Berhasil menambahkan bimbingan');
     }
 
     public function show($id)
