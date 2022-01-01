@@ -19,4 +19,14 @@ class Sidang extends Model
     {
         return $this->belongsTo(PengajuanSidang::class, 'id_pengajuan_sidang', 'id');
     }
+
+    public function dosen_penguji_pertama()
+    {
+        return $this->belongsTo(User::class, 'id_dosen_penguji1', 'id');
+    }
+
+    public function dosen_penguji_kedua()
+    {
+        return $this->belongsTo(User::class, 'id_dosen_penguji2', 'id');
+    }
 }
