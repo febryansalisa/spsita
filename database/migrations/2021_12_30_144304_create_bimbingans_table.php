@@ -17,8 +17,10 @@ class CreateBimbingansTable extends Migration
             $table->id();
             $table->date('tanggal_bimbingan');
             $table->time('jam_bimbingan');
-            $table->unsignedBigInteger('id_dosen_pembimbing');
-            $table->foreign('id_dosen_pembimbing')->references('id')->on('users');
+            $table->unsignedBigInteger('id_dosen');
+            $table->foreign('id_dosen')->references('id')->on('users');
+            $table->unsignedBigInteger('id_mahasiswa');
+            $table->foreign('id_mahasiswa')->references('id')->on('users');
             $table->text('link_meet_bimbingan');
             $table->text('file_ta');
             $table->text('komentar_ta');
