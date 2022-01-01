@@ -15,6 +15,8 @@ class CreateSidangsTable extends Migration
     {
         Schema::create('sidang', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_pengajuan_sidang');
+            $table->foreign('id_pengajuan_sidang')->references('id')->on('pengajuan_sidang');
             $table->string('ruang_sidang');
             $table->text('catatan');
             $table->unsignedBigInteger('id_dosen_penguji1');
