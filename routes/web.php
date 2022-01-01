@@ -3,6 +3,8 @@
 use App\Http\Controllers\BimbinganController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PengajuanSidangController;
+use App\Http\Controllers\SidangController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +29,11 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
+    // MAHASISWA
     Route::get('/dashboard/bimbingan-mahasiswa', [BimbinganController::class, 'bimbinganMahasiswa'])->name('bimbingan.mahasiswa');
+    Route::get('/dashboard/jadwal-sidang-mahasiswa', [SidangController::class, 'jadwalMahasiswa'])->name('jadwal-sidang.mahasiswa');
 
+    // DOSEN
+    Route::get('/dashboard/jadwal-sidang-dosen', [SidangController::class, 'jadwalDosen'])->name('jadwal-sidang.dosen');
     Route::resource('/dashboard/bimbingan', BimbinganController::class);
 });

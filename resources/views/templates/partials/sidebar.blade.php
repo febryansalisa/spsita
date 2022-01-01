@@ -32,6 +32,12 @@
             <span>Bimbingan</span>
         </a>
     </li>
+    <li class="nav-item {{ Request::is('dashboard/jadwal-sidang-mahasiswa*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('jadwal-sidang.mahasiswa') }}">
+            <i class="fas fa-fw fa-calendar-alt"></i>
+            <span>Jadwal Sidang</span>
+        </a>
+    </li>
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
             aria-controls="collapseTwo">
