@@ -50,6 +50,11 @@
             placeholder="Tahap 1, Tahap 2, dll" value="{{ $bimbingan->tahapan_bimbingan }}" required>
     </div>
 
+    <div class="form-group">
+        <label for="komentar_ta">Komentar</label>
+        <textarea name="komentar_ta" class="form-control" id="komentar_ta" required>{{ $bimbingan->komentar_ta }}</textarea>
+    </div>
+
     <button type="submit" class="btn btn-primary">Update</button>
 </form>
 
