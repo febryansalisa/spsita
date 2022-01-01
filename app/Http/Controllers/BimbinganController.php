@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Bimbingan;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BimbinganController extends Controller
 {
@@ -54,6 +55,9 @@ class BimbinganController extends Controller
 
     public function destroy(Bimbingan $bimbingan)
     {
-        //
+        Storage::delete($bimbingan->file_ta);
+        $bimbingan->delete();
+
+        return redirect()->route('bimbingan.index')->with('success', 'Berhasil menghapus bimbingan');
     }
 }
