@@ -21,7 +21,7 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-    <!-- Heading -->
+    @can('mahasiswa')
     <div class="sidebar-heading">
         Mahasiswa
     </div>
@@ -41,10 +41,9 @@
             </div>
         </div>
     </li>
+    @endcan
 
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
+    @can('dosen')
     <div class="sidebar-heading">
         Dosen
     </div>
@@ -70,11 +69,9 @@
             <span>Bimbingan</span>
         </a>
     </li>
+    @endcan
 
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
-    <!-- Heading -->
+    @can('paa')
     <div class="sidebar-heading">
         PAA
     </div>
@@ -92,6 +89,7 @@
             <i class="fas fa-fw fa-table"></i>
             <span>Tables</span></a>
     </li>
+    @endcan
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
