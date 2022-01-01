@@ -41,7 +41,7 @@
                 <td>{{ $bimbingan->link_meet_bimbingan }}</td>
                 <td>{{ $bimbingan->judul_ta }}</td>
                 <td>
-                    <a href="{{ Storage::url($bimbingan->file_ta) }}" target="_blank"></a>
+                    <a href="{{ Storage::url($bimbingan->file_ta) }}" target="_blank">File Tugas Akhir</a>
                 </td>
                 <td>{{ $bimbingan->status_ta }}</td>
                 <td>{{ $bimbingan->komentar_ta }}</td>
