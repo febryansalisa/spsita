@@ -19,8 +19,8 @@ class CreatePengajuanSidangsTable extends Migration
             $table->foreign('id_persetujuan')->references('id')->on('persetujuan');
             $table->unsignedBigInteger('id_sidang');
             $table->foreign('id_sidang')->references('id')->on('sidang');
-            $table->unsignedBigInteger('id_user');
-            $table->foreign('id_user')->references('id')->on('users');
+            $table->unsignedBigInteger('id_mahasiswa');
+            $table->foreign('id_mahasiswa')->references('id')->on('users');
             $table->timestamp('tanggal_daftar_sidang');
             $table->timestamps();
         });
