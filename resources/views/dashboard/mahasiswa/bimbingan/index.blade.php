@@ -26,6 +26,7 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><b>Tanggal Bimbingan</b> : {{ $bimbingan->tanggal_bimbingan }}</li>
                     <li class="list-group-item"><b>Jam Bimbingan</b> : {{ $bimbingan->jam_bimbingan }}</li>
+                    <li class="list-group-item"><b>Link Meet</b> : {{ $bimbingan->link_meet_bimbingan }}</li>
                     <li class="list-group-item"><b>Judul TA</b> : {{ $bimbingan->judul_ta }}</li>
                     <li class="list-group-item">
                         <a href="{{ Storage::url($bimbingan->file_ta) }}" target="_blank">File Tugas Akhir</a>
