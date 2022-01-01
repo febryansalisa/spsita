@@ -22,8 +22,8 @@ class CreateSidangsTable extends Migration
             $table->unsignedBigInteger('id_dosen_penguji2');
             $table->foreign('id_dosen_penguji2')->references('id')->on('users');
             $table->date('tgl_sidang');
-            $table->time('waktu_mulai_sidang');
-            $table->time('waktu_selesai_sidang');
+            $table->time('waktu_mulai_sidang')->nullable();
+            $table->time('waktu_selesai_sidang')->nullable();
             $table->timestamps();
         });
     }
