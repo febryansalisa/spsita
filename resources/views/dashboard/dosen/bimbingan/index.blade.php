@@ -38,7 +38,9 @@
                 <td>{{ $bimbingan->tanggal_bimbingan }}</td>
                 <td>{{ $bimbingan->jam_bimbingan }}</td>
                 <td>{{ $bimbingan->mahasiswa->nama }}</td>
-                <td>{{ $bimbingan->link_meet_bimbingan }}</td>
+                <td>
+                    <a href="{{ $bimbingan->link_meet_bimbingan }}" target="_blank">Link Meeting</a>
+                </td>
                 <td>{{ $bimbingan->judul_ta }}</td>
                 <td>
                     @if ($bimbingan->file_ta)
