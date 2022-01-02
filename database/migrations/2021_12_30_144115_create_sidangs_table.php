@@ -16,14 +16,14 @@ class CreateSidangsTable extends Migration
         Schema::create('sidang', function (Blueprint $table) {
             $table->id();
             $table->string('ruang_sidang');
-            $table->text('catatan');
+            $table->text('catatan')->nullable();
             $table->unsignedBigInteger('id_dosen_penguji1');
             $table->foreign('id_dosen_penguji1')->references('id')->on('users');
             $table->unsignedBigInteger('id_dosen_penguji2');
             $table->foreign('id_dosen_penguji2')->references('id')->on('users');
             $table->date('tgl_sidang');
-            $table->time('waktu_mulai_sidang')->nullable();
-            $table->time('waktu_selesai_sidang')->nullable();
+            $table->time('jam_mulai_sidang')->nullable();
+            $table->time('jam_selesai_sidang')->nullable();
             $table->timestamps();
         });
     }
