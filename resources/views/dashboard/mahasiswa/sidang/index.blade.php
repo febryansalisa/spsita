@@ -100,8 +100,8 @@
                 <tr>
                     <th scope="col">Ruang Sidang</th>
                     <th scope="col">Tanggal Sidang</th>
-                    <th scope="col">Waktu Mulai</th>
-                    <th scope="col">Waktu Selesai</th>
+                    <th scope="col">Jam Mulai</th>
+                    <th scope="col">Jam Selesai</th>
                     <th scope="col">Dosen Penguji 1</th>
                     <th scope="col">Dosen Penguji 2</th>
                 </tr>
@@ -110,8 +110,8 @@
                 <tr>
                     <td>{{ $jadwalSidang->ruang_sidang }}</td>
                     <td>{{ $jadwalSidang->tanggal_sidang }}</td>
-                    <td>{{ $jadwalSidang->waktu_mulai_sidang }}</td>
-                    <td>{{ $jadwalSidang->waktu_selesai_sidang }}</td>
+                    <td>{{ $jadwalSidang->jam_mulai_sidang }}</td>
+                    <td>{{ $jadwalSidang->jam_selesai_sidang }}</td>
                     <td>{{ $jadwalSidang->dosen_penguji_pertama->nama }}</td>
                     <td>{{ $jadwalSidang->dosen_penguji_kedua->nama }}</td>
                 </tr>
