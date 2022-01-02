@@ -22,6 +22,9 @@ class SidangController extends Controller
         $data['approvedPengajuanSidang'] = PengajuanSidang::where('id_mahasiswa', auth()->id())
             ->where('status_pengajuan', '=', 1)
             ->first();
+        $data['pengajuanSidang'] = PengajuanSidang::where('id_mahasiswa', auth()->id())
+            ->where('status_pengajuan', '=', 1)
+            ->get();
         $data['jadwalSidang'] = Sidang::whereHas('pengajuan_sidang', function ($query) {
             $query->where('id_mahasiswa', auth()->id());
         })->first();

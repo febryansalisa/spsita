@@ -13,8 +13,8 @@
     <h1 class="h3 mb-0 text-gray-800">Jadwal Sidang</h1>
 </div>
 
-@if($totalBimbingan >= 8 && $approvedPengajuanSidang)
-<a href="#" class="btn btn-primary">Pengajuan Sidang</a>
+@if($totalBimbingan >= 8 && !$approvedPengajuanSidang)
+<a href="{{ route('pengajuan-sidang.create') }}" class="btn btn-primary mb-3">Pengajuan Sidang</a>
 @else
 <div class="row">
     <div class="col-md-12 mb-5">
@@ -22,8 +22,11 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <div class="h5 font-weight-bold text-gray-800">
                             Minimal 8x bimbingan untuk bisa melakukan pengajuan sidang
+                        </div>
+                        <div class="mb-0 font-weight-bold text-gray-800">
+                            Total bimbingan sudah dicek : {{ $totalBimbingan }}
                         </div>
                     </div>
                 </div>
@@ -32,6 +35,49 @@
     </div>
 </div>
 @endif
+
+<div class="table-responsive my-3">
+    <table class="table table-bordered" width="100%" cellspacing="0">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Tanggal Daftar Sidang</th>
+                <th scope="col">Status Pengajuan</th>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse ($pengajuanSidang as $pengajuan)
+            <tr>
+                <td>{{ $pengajuan->tanggal_daftar_sidang }}</td>
+                <td>{{ $pengajuan->status_pengajuan == 0 ? 'Belum Disetujui' : 'Sudah Disetujui' }}</td>
+            </tr>
+            @empty
+            <tr>
+                <td colspan="2">Belum ada data pengajuan</td>
+            </tr>
+            @endforelse
+        </tbody>
+    </table>
+</div>
+
+@if($approvedPengajuanSidang)
+<div class="table-responsive my-3">
+    <table class="table table-bordered" width="100%" cellspacing="0">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Tanggal Daftar Sidang</th>
+                <th scope="col">Status Pengajuan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ $approvedPengajuanSidang->tanggal_daftar_sidang }}</td>
+                <td>{{ $approvedPengajuanSidang->status_pengajuan == 0 ? 'Belum Disetujui' : 'Sudah Disetujui' }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+@endif
+
 @if($jadwalSidang)
 <div class="table-responsive my-3">
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
