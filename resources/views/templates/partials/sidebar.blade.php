@@ -38,7 +38,7 @@
             <span>Jadwal Sidang</span>
         </a>
     </li>
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
             aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
@@ -51,7 +51,7 @@
                 <a class="collapse-item" href="cards.html">Cards</a>
             </div>
         </div>
-    </li>
+    </li> --}}
     @endcan
 
     @can('dosen')
@@ -93,18 +93,19 @@
         PAA
     </div>
 
-    <!-- Nav Item - Charts -->
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span></a>
+    <li class="nav-item {{ Request::is('dashboard/pengajuan-sidang*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('pengajuan-sidang.index') }}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Pengajuan Sidang</span>
+        </a>
     </li>
 
-    <!-- Nav Item - Tables -->
+
     <li class="nav-item">
         <a class="nav-link" href="tables.html">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span></a>
+            <i class="fas fa-fw fa-calendar-alt"></i>
+            <span>Jadwal Sidang</span>
+        </a>
     </li>
     @endcan
 

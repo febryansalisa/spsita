@@ -14,4 +14,9 @@ class PengajuanSidang extends Model
     protected $fillable = [
         'id_mahasiswa', 'tanggal_daftar_sidang', 'status_pengajuan'
     ];
+
+    public function mahasiswa()
+    {
+        return $this->belongsTo(User::class, 'id_mahasiswa', 'id');
+    }
 }

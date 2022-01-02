@@ -38,4 +38,9 @@ Route::middleware(['auth'])->group(function () {
     // DOSEN
     Route::get('/dashboard/jadwal-sidang-dosen', [SidangController::class, 'jadwalDosen'])->name('jadwal-sidang.dosen');
     Route::resource('/dashboard/bimbingan', BimbinganController::class);
+
+    // PAA
+    Route::get('/dashboard/pengajuan-sidang', [PengajuanSidangController::class, 'index'])->name('pengajuan-sidang.index');
+    Route::put('/dashboard/pengajuan-sidang/{pengajuanSidang}', [PengajuanSidangController::class, 'update'])->name('pengajuan-sidang.update');
+    Route::delete('/dashboard/pengajuan-sidang/{pengajuanSidang}', [PengajuanSidangController::class, 'destroy'])->name('pengajuan-sidang.destroy');
 });
