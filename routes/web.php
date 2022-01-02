@@ -32,6 +32,8 @@ Route::middleware(['auth'])->group(function () {
     // MAHASISWA
     Route::get('/dashboard/bimbingan-mahasiswa', [BimbinganController::class, 'bimbinganMahasiswa'])->name('bimbingan.mahasiswa');
     Route::get('/dashboard/jadwal-sidang-mahasiswa', [SidangController::class, 'jadwalMahasiswa'])->name('jadwal-sidang.mahasiswa');
+    // Route::get('/dashboard/pengajuan-sidang/create', [PengajuanSidangController::class, 'create'])->name('pengajuan-sidang.create');
+    Route::post('/dashboard/pengajuan-sidang', [PengajuanSidangController::class, 'store'])->name('pengajuan-sidang.store');
 
     // DOSEN
     Route::get('/dashboard/jadwal-sidang-dosen', [SidangController::class, 'jadwalDosen'])->name('jadwal-sidang.dosen');

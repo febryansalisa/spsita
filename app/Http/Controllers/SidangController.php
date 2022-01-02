@@ -23,7 +23,7 @@ class SidangController extends Controller
             ->where('status_pengajuan', '=', 1)
             ->first();
         $data['pengajuanSidang'] = PengajuanSidang::where('id_mahasiswa', auth()->id())
-            ->where('status_pengajuan', '=', 1)
+            ->where('status_pengajuan', '=', 0)
             ->get();
         $data['jadwalSidang'] = Sidang::whereHas('pengajuan_sidang', function ($query) {
             $query->where('id_mahasiswa', auth()->id());

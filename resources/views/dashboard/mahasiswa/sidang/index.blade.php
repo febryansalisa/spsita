@@ -14,7 +14,11 @@
 </div>
 
 @if($totalBimbingan >= 8 && !$approvedPengajuanSidang)
-<a href="{{ route('pengajuan-sidang.create') }}" class="btn btn-primary mb-3">Pengajuan Sidang</a>
+<form action="{{ route('pengajuan-sidang.store') }}" method="POST">
+    @csrf
+
+    <button type="submit" class="btn btn-primary mb-3">Pengajuan Sidang</button>
+</form>
 @else
 <div class="row">
     <div class="col-md-12 mb-5">
