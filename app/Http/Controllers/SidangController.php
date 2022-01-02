@@ -16,15 +16,18 @@ class SidangController extends Controller
 
     public function jadwalMahasiswa()
     {
-        $data['totalBimbingan'] = Bimbingan::where('id_mahasiswa', auth()->id())
+        $data['totalBimbinganValid'] = Bimbingan::where('id_mahasiswa', auth()->id())
             ->where('status_ta', 'Sudah Dicek')
             ->count();
         $data['approvedPengajuanSidang'] = PengajuanSidang::where('id_mahasiswa', auth()->id())
             ->where('status_pengajuan', '=', 1)
             ->first();
         $data['pengajuanSidang'] = PengajuanSidang::where('id_mahasiswa', auth()->id())
-            ->where('status_pengajuan', '=', 0)
+            ->where('status_pengajuan', '!=', 1)
             ->get();
+        $data['totalPengajuanSidangBelumDisetujui'] = PengajuanSidang::where('id_mahasiswa', auth()->id())
+            ->where('status_pengajuan', '=', 0)
+            ->count();
         $data['jadwalSidang'] = Sidang::whereHas('pengajuan_sidang', function ($query) {
             $query->where('id_mahasiswa', auth()->id());
         })->first();
