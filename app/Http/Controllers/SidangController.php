@@ -49,11 +49,13 @@ class SidangController extends Controller
 
     public function create()
     {
+        $pengajuanSidang = Sidang::pluck('id_pengajuan_sidang');
         $data['listDosen'] = User::whereHas('role', function ($query) {
             $query->where('nama_role', 'Dosen');
         })->get();
         $data['listPengajuanSidang'] = PengajuanSidang::with('mahasiswa')
             ->where('status_pengajuan', 1)
+            ->whereNotIn('id', $pengajuanSidang)
             ->get();
         return view('dashboard.paa.sidang.create', $data);
     }
