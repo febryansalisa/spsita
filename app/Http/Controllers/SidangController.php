@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Bimbingan;
 use App\Models\PengajuanSidang;
 use App\Models\Sidang;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class SidangController extends Controller
 {
     public function index()
     {
-        //
+        $data['listJadwalSidang'] = Sidang::with('pengajuan_sidang.mahasiswa')->get();
+        return view('dashboard.paa.sidang.index', $data);
     }
 
     public function jadwalMahasiswa()
@@ -47,12 +49,19 @@ class SidangController extends Controller
 
     public function create()
     {
-        //
+        $data['listDosen'] = User::whereHas('role', function ($query) {
+            $query->where('nama_role', 'Dosen');
+        })->get();
+        $data['listPengajuanSidang'] = PengajuanSidang::with('mahasiswa')
+            ->where('status_pengajuan', 1)
+            ->get();
+        return view('dashboard.paa.sidang.create', $data);
     }
 
     public function store(Request $request)
     {
-        //
+        Sidang::create($request->all());
+        return redirect()->route('sidang.index')->with('success', 'Berhasil menambahkan jadwal sidang baru');
     }
 
     public function show($id)

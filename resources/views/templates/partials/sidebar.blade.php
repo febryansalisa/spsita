@@ -101,8 +101,8 @@
     </li>
 
 
-    <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+    <li class="nav-item {{ Request::is('dashboard/sidang*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('sidang.index') }}">
             <i class="fas fa-fw fa-calendar-alt"></i>
             <span>Jadwal Sidang</span>
         </a>
